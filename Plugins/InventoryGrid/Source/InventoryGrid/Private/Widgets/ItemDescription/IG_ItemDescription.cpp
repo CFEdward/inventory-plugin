@@ -12,7 +12,7 @@ FVector2D UIG_ItemDescription::GetBoxSize() const
 
 void UIG_ItemDescription::SetVisibility(ESlateVisibility InVisibility)
 {
-	for (const auto Child : GetChildren())
+	for (const auto& Child : GetChildren())
 	{
 		Child->Collapse();
 	}

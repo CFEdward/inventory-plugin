@@ -23,14 +23,15 @@ protected:
 	
 	virtual void BeginPlay() override;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
+	TObjectPtr<USkeletalMeshComponent> MeshComponent;
+
 private:
 
 	/** This is the mesh on the player-controlled Character */
 	TWeakObjectPtr<USkeletalMeshComponent> SourceMeshComponent;
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UIG_EquipmentComponent> EquipmentComponent;
-	UPROPERTY(VisibleAnywhere)
-	TObjectPtr<USkeletalMeshComponent> MeshComponent;
 
 	FTimerHandle TimerForNextTick;
 	void DelayedInitialization();

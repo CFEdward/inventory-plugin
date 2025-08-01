@@ -37,24 +37,28 @@ void UIG_GridSlot::SetInventoryItem(UIG_InventoryItem* Item)
 void UIG_GridSlot::SetUnoccupiedTexture()
 {
 	GridSlotState = EIG_GridSlotState::Unoccupied;
+	Brush_Unoccupied.SetImageSize(Image_GridSlot->GetDesiredSize());
 	Image_GridSlot->SetBrush(Brush_Unoccupied);
 }
 
 void UIG_GridSlot::SetOccupiedTexture()
 {
 	GridSlotState = EIG_GridSlotState::Occupied;
+	Brush_Occupied.SetImageSize(Image_GridSlot->GetDesiredSize());
 	Image_GridSlot->SetBrush(Brush_Occupied);
 }
 
 void UIG_GridSlot::SetSelectedTexture()
 {
 	GridSlotState = EIG_GridSlotState::Selected;
+	Brush_Selected.SetImageSize(Image_GridSlot->GetDesiredSize());
 	Image_GridSlot->SetBrush(Brush_Selected);
 }
 
 void UIG_GridSlot::SetGreyedOutTexture()
 {
 	GridSlotState = EIG_GridSlotState::GreyedOut;
+	Brush_GreyedOut.SetImageSize(Image_GridSlot->GetDesiredSize());
 	Image_GridSlot->SetBrush(Brush_GreyedOut);
 }
 

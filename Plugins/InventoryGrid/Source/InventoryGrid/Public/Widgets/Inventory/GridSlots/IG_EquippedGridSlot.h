@@ -7,6 +7,7 @@
 #include "IG_GridSlot.h"
 #include "IG_EquippedGridSlot.generated.h"
 
+class USizeBox;
 class UOverlay;
 class UIG_EquippedSlottedItem;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FEquippedGridSlotClicked, UIG_EquippedGridSlot*, GridSlot,
@@ -41,6 +42,8 @@ private:
 	
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UImage> Image_GreyedOutIcon;
+	UPROPERTY(meta = (BindWidget))
+	TObjectPtr<USizeBox> SizeBox_Image;
 
 	UPROPERTY(EditAnywhere, Category = "Inventory")
 	TSubclassOf<UIG_EquippedSlottedItem> EquippedSlottedItemClass;

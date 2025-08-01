@@ -7,6 +7,7 @@
 #include "Components/Image.h"
 #include "Components/Overlay.h"
 #include "Components/OverlaySlot.h"
+#include "Components/SizeBox.h"
 #include "InventoryManagement/Utils/IG_InventoryStatics.h"
 #include "Items/IG_InventoryItem.h"
 #include "Items/Fragments/IG_ItemFragment.h"
@@ -59,7 +60,8 @@ UIG_EquippedSlottedItem* UIG_EquippedGridSlot::OnItemEquipped(UIG_InventoryItem*
 	// Calculate the Draw Size for the Equipped Slotted Item
 	const FIntPoint GridDimensions = GridFragment->GetGridSize();
 	const float IconTileWidth = TileSize - GridFragment->GetGridPadding() * 2;
-	const FVector2D DrawSize = GridDimensions * IconTileWidth;
+	//const FVector2D DrawSize = GridDimensions * IconTileWidth;
+	const FVector2D DrawSize = FVector2D(SizeBox_Image->GetWidthOverride(), SizeBox_Image->GetHeightOverride());
 	
 	// Create the Equipped Slotted Item widget
 	EquippedSlottedItem = CreateWidget<UIG_EquippedSlottedItem>(GetOwningPlayer(), EquippedSlottedItemClass);

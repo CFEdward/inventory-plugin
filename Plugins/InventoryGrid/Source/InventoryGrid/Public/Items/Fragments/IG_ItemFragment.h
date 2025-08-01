@@ -52,7 +52,7 @@ public:
 private:
 
 	UPROPERTY(EditAnywhere, Category = "Inventory")
-	FIntPoint GridSize{1, 1};
+	FIntPoint GridSize{1};
 	UPROPERTY(EditAnywhere, Category = "Inventory")
 	float GridPadding{0.f};
 };

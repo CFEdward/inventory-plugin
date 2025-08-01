@@ -26,9 +26,6 @@ class INVENTORYGRID_API UIG_InventoryGrid : public UUserWidget
 	GENERATED_BODY()
 
 public:
-
-	virtual void NativeOnInitialized() override;
-	virtual void NativeTick(const FGeometry& MyGeometry, float InDeltaTime) override;
 	
 	FIG_SlotAvailabilityResult HasRoomForItem(const UIG_ItemComponent* ItemComponent);
 	UFUNCTION()
@@ -48,6 +45,21 @@ public:
 	EIG_ItemCategory GetItemCategory() const { return ItemCategory; }
 	UIG_HoverItem* GetHoverItem() const { return HoverItem; }
 	float GetTileSize() const { return TileSize; }
+
+protected:
+
+	virtual void NativeOnInitialized() override;
+	virtual void NativeTick(const FGeometry& MyGeometry, float InDeltaTime) override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
+	TSubclassOf<UIG_GridSlot> GridSlotClass;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
+	int32 Rows;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
+	int32 Columns;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
+	float TileSize;
 
 private:
 
@@ -181,14 +193,6 @@ private:
 	TMap<int32, TObjectPtr<UIG_SlottedItem>> SlottedItems;
 	UPROPERTY()
 	TArray<TObjectPtr<UIG_GridSlot>> GridSlots;
-	UPROPERTY(EditAnywhere, Category = "Inventory")
-	TSubclassOf<UIG_GridSlot> GridSlotClass;
-	UPROPERTY(EditAnywhere, Category = "Inventory")
-	int32 Rows;
-	UPROPERTY(EditAnywhere, Category = "Inventory")
-	int32 Columns;
-	UPROPERTY(EditAnywhere, Category = "Inventory")
-	float TileSize;
 
 	UPROPERTY(EditAnywhere, Category = "Inventory")
 	TSubclassOf<UIG_HoverItem> HoverItemClass;
